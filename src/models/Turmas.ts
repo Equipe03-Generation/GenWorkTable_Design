@@ -1,7 +1,7 @@
 import Projetos from './Projetos'
 
 interface Turmas{
-
+    
 id: number;
 descricao: string;
 isAtivo: string;

@@ -3,56 +3,58 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { busca, buscaId, post, put } from '../../../services/Service';
-import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
 import Projetos from '../../../models/Projetos';
+import Turmas from '../../../models/Turmas';
 
-function CadastroPost() {
+function CadastroProjetos() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
 
 
-    const [projetos, setProjetos] = useState<Projetos>(
+    const [turmas, setTurmas] = useState<Turmas>(
         {
             id: 0,
-            assunto: '',
-            descricao: ''
+            descricao: '',
+            isAtivo: ''
         })
-    const [postagem, setPostagem] = useState<Postagem>({
+    const [projetos, setProjetos] = useState<Projetos>({
         id: 0,
-        titulo: '',
-        texto: '',
-        tema: null
+        nomeProjeto: '',
+        logoProjeto: '',
+        linkProjeto: '',
+        pitProjeto: '',
+        grupoId: '',
     })
 
     useEffect(() => { 
-        setPostagem({
-            ...postagem,
-            tema: tema
+        setProjetos({
+            ...projetos,
+            turmas: turmas
         })
-    }, [tema])
+    }, [turmas])
 
     useEffect(() => {
-        getTemas()
+        getTurmas()
         if (id !== undefined) {
-            findByIdPostagem(id)
+            findByIdProjetos(id)
         }
     }, [id])
 
-    async function getTemas() {
-        await busca("/tema", setTemas)
+    async function getTurmas() {
+        await busca("/turmas", setTurmas)
     }
 
-    async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagem)
+    async function findByIdProjetos(id: string) {
+        await buscaId(`projetos/${id}`, setProjetos)
     }
 
-    function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
+    function updatedProjetos(e: ChangeEvent<HTMLInputElement>) {
 
-        setPostagem({
-            ...postagem,
+        setProjetos({
+            ...projetos,
             [e.target.name]: e.target.value,
-            tema: tema
+            turmas: turmas
         })
 
     }
@@ -61,8 +63,8 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem)
-            toast.success('Postagem modificada com sucesso!', {
+            put(`/projetos`, projetos, setProjetos)
+            toast.success('Projeto modificado com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -73,8 +75,8 @@ function CadastroPost() {
                 progress: undefined,
             });
         } else {
-            post(`/postagens`, postagem, setPostagem)
-            toast.success('Postagem criada com sucesso!', {
+            post(`/projetos`, projetos, setProjetos)
+            toast.success('Projeto criado com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -90,29 +92,31 @@ function CadastroPost() {
     }
 
     function back() {
-        navigate('/posts')
+        navigate('/projetos')
     }
     return (
         <Grid className='postcard'>
         <Container maxWidth="sm">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" className='postcard' >Cadastro de Postagem</Typography>
-                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="Texto" name="texto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={projetos.nomeProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="nomeProjeto" label="Nome Projeto" variant="outlined" name="nomeProjeto" margin="normal" fullWidth />
+                <TextField value={projetos.logoProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="logoProjeto" label="Logo Projeto" variant="outlined" name="logoProjeto" margin="normal" fullWidth />
+                <TextField value={projetos.linkProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="linkProjeto" label="Link Projeto" variant="outlined" name="linkProjeto" margin="normal" fullWidth />
+                <TextField value={projetos.pitProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="pitProjeto" label="Pit Projeto" variant="outlined" name="pitProjeto" margin="normal" fullWidth />
 
                 <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                    <InputLabel id="demo-simple-select-helper-label">Turmas</InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema)}>
+                        onChange={(e) => buscaId(`/turmas/${e.target.value}`, setTurmas)}>
                         {
-                            temas.map(tema => (
-                                <MenuItem value={tema.id}>{tema.assunto}</MenuItem>
+                            turmas.map(turmas => (
+                                <MenuItem value={turmas.descricao}>{turmas.isAtivo}</MenuItem>
                             ))
                         }
                     </Select>
-                    <FormHelperText>Escolha um tema para a postagem</FormHelperText>
+                    <FormHelperText>Escolha uma turma para o projeto</FormHelperText>
                     <Button type="submit" variant="contained" className='botaopostagem'>
                         Finalizar
                     </Button>
@@ -122,4 +126,4 @@ function CadastroPost() {
         </Grid>
     )
 }
-export default CadastroPost;
+export default CadastroProjetos;
