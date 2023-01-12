@@ -1,7 +1,6 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
 import { TextField, Button, Grid, Typography } from "@material-ui/core"
 import { useNavigate, useParams } from 'react-router-dom'
-import './CadastroTema.css';
 import { buscaId, post, put } from '../../../services/Service';
 import { toast } from 'react-toastify'
 import Turmas from '../../../models/Turmas';

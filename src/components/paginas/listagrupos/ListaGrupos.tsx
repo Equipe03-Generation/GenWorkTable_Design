@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import {Card, CardActions, CardContent, Button, Typography,Grid } from '@material-ui/core';
 import {Box} from '@mui/material';
-import './ListaTema.css';
 import {useNavigate} from 'react-router-dom';
 import { busca } from '../../../services/Service';
 import Grupos from '../../../models/Grupos';

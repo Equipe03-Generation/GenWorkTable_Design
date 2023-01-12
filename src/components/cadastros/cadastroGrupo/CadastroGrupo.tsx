@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
 import { Container, Typography, TextField, Grid } from "@material-ui/core";
-import './CadastroGrupo.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { post } from '../../../services/Service';
 import { toast } from 'react-toastify';

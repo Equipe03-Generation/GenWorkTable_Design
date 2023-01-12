@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
 import {Box} from '@mui/material';
-import './DeletarPostagem.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { buscaId, deleteId } from '../../../services/Service';
 import { toast } from 'react-toastify';

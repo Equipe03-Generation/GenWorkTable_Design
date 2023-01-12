@@ -5,18 +5,18 @@ import CadastroProjeto from './components/cadastros/cadastroProjeto/CadastroProj
 import CadastroGrupo from './components/cadastros/cadastroGrupo/CadastroGrupo';
 import Home from './components/estaticos/home/Home';
 import Footer from './components/estaticos/footer/Footer';
-import CustomNavbar from './components/estaticos/navbar/GenWorks';
 import ListaGrupos from './components/paginas/listagrupos/ListaGrupos';
 import ListaProjetos from './components/paginas/listaprojetos/ListaProjetos';
 import ListaTurmas from './components/paginas/listaturmas/ListaTurmas';
 import CadastroTurma from './components/cadastros/cadastroTurma/CadastroTurma';
 import DeletarProjeto from './components/cadastros/deletarProjeto/deletarProjeto';
 import DeletarTurma from './components/cadastros/deletarTurma/deletarTurma';
+import Navbar from './components/estaticos/navbar/Navbar';
 
 function App() {
   return (
     <Router>
-      <CustomNavbar />
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
 
