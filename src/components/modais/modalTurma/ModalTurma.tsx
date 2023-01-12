@@ -5,6 +5,7 @@ import {Button} from "@material-ui/core";
 import {Box} from '@mui/material';
 import CloseIcon from '@material-ui/icons/Close';
 import CadastroTurma from '../../cadastros/cadastroTurma/CadastroTurma';
+import './ModalTurma.css'
 
 
 function getModalStyle() {

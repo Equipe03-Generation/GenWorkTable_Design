@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://genworktable.onrender.com/'
+    baseURL: 'https://genworktable.onrender.com'
 })
 
 export const cadastroGrupo = async(url: any,dados: any,setDado: any) => { 
