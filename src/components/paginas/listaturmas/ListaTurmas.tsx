@@ -7,59 +7,45 @@ import { busca } from '../../../services/Service';
 import Turmas from '../../../models/Turmas';
 
 function ListaTurmas() {
-  const [temas, setTurmas] = useState<Turmas[]>([])
+  const [turmas, setTurmas] = useState<Turmas[]>([])
   let navigate = useNavigate();
 
   async function getTurmas(){
-    await busca("/turmas", setTurmas)
-  }
+    await busca("/turmas/all", setTurmas)
+  };
 
+  useEffect(() => {
 
-  useEffect(()=>{
     getTurmas()
-  }, [turmas.length]);
 
-  return (
+   }, [turmas.length]);
+  
+   return (
     <>
-    <Grid container className= 'displayflextema'>
-    {
-      turmas.map(turmas =>(
-      <Box m={2}>
-        <Card variant="outlined" className='papeltemas caixalistatema'>
-          <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Tema
-            </Typography>
-            <Typography variant="h5" component="h2">
-             {turmas.descricao}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="center" mb={1.5} >
+    <Grid container className= 'displayflex'>
+      {
+        turmas.map(turmas => (
+          <Box m={1} className='caixalistapost'>
+            <Card variant="outlined" className='papelpost'>
+              <CardContent>
+                <Typography color="textSecondary" gutterBottom className='cordefundo'>
+                  Turma
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {turmas.descricao}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {turmas.isAtivo}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
 
-              <Link to={`/cadastrarturma/${turmas.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" className="marginLeft botao" size='small'>
-                    Atualizar
-                  </Button>
-                </Box>
-              </Link>
-              <Link to={`/deletarTurma/${turmas.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" size='small' color="secondary">
-                    Deletar
-                  </Button>
-                </Box>
-              </Link>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
-      ))
-      }
-    </Grid>
+        ))
+      } 
+       </Grid>
     </>
-  );
-}  
+  )
+}
 
 export default ListaTurmas;

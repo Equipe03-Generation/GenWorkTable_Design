@@ -63,7 +63,7 @@ function CadastroProjetos() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/projetos`, projetos, setProjetos)
+            put(`/projetos/atualizado`, projetos, setProjetos)
             toast.success('Projeto modificado com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
@@ -75,7 +75,7 @@ function CadastroProjetos() {
                 progress: undefined,
             });
         } else {
-            post(`/projetos`, projetos, setProjetos)
+            post(`/projetos/cadastrar`, projetos, setProjetos)
             toast.success('Projeto criado com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
@@ -103,6 +103,7 @@ function CadastroProjetos() {
                 <TextField value={projetos.logoProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="logoProjeto" label="Logo Projeto" variant="outlined" name="logoProjeto" margin="normal" fullWidth />
                 <TextField value={projetos.linkProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="linkProjeto" label="Link Projeto" variant="outlined" name="linkProjeto" margin="normal" fullWidth />
                 <TextField value={projetos.pitProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="pitProjeto" label="Pit Projeto" variant="outlined" name="pitProjeto" margin="normal" fullWidth />
+                <TextField value={projetos.grupoId} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="grupoId" label="Número do Grupo" variant="outlined" name="grupoId" margin="normal" fullWidth />
                 <FormControl >
                     <Button type="submit" variant="contained" className='botaopostagem'>
                         Finalizar

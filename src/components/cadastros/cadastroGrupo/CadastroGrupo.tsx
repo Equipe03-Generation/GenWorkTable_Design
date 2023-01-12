@@ -30,7 +30,7 @@ function CadastroGrupo() {
         e.preventDefault()
 
         if (id !== undefined) {
-            post(`/grupos`, grupos, setGrupos)
+            post(`/grupos/cadastrar`, grupos, setGrupos);
             toast.success('Grupo criado com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,

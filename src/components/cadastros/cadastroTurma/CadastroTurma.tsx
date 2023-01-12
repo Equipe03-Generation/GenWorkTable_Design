@@ -42,7 +42,7 @@ function CadastroTurma() {
     
             if (id !== undefined) {
                 console.log(turmas)
-                put(`/turmas`, turmas, setTurmas)
+                put(`/turmas/atualizar`, turmas, setTurmas);
                 toast.success('Turma atualizada com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
@@ -54,7 +54,7 @@ function CadastroTurma() {
                     progress: undefined,
                     });
             } else {
-                post(`/turmas`, turmas, setTurmas)
+                post(`/turmas/cadastrar`, turmas, setTurmas);
                 toast.success('Turma cadastrada com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
@@ -82,7 +82,6 @@ function CadastroTurma() {
                 <Typography variant="h3" className='fontecadtema' component="h1" align="center">Cadastro de Turma</Typography>
                 <TextField className='cortemacaixa' value={turmas.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTurmas(e)} id="descricao" label="Descrição" name="descricao" margin="normal" fullWidth />
                 <TextField className='cortemacaixa' value={turmas.isAtivo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTurmas(e)} id="isAtivo" label="Ativo ou Desativo" name="isAtivo" margin="normal" fullWidth />
-                
                 <Button type="submit" variant="contained" className='botaocadtema'>
                     Finalizar
                 </Button>

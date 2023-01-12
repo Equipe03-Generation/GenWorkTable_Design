@@ -11,55 +11,42 @@ function ListaGrupos() {
   let navigate = useNavigate();
 
   async function getGrupos(){
-    await busca("/grupos", setGrupos)
-  }
+    await busca("/grupos/all", setGrupos)
+  };
 
+  useEffect(() => {
 
-  useEffect(()=>{
     getGrupos()
-  }, [grupos.length]);
 
-  return (
+   }, [grupos.length]);
+  
+   return (
     <>
-    <Grid container className= 'displayflextema'>
-    {
-      grupos.map(grupos =>(
-      <Box m={2}>
-        <Card variant="outlined" className='papeltemas caixalistatema'>
-          <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Grupos
-            </Typography>
-            <Typography variant="h5" component="h2">
-             {grupos.numeroGrupo}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="center" mb={1.5} >
+    <Grid container className= 'displayflex'>
+      {
+        grupos.map(grupos => (
+          <Box m={1} className='caixalistapost'>
+            <Card variant="outlined" className='papelpost'>
+              <CardContent>
+                <Typography color="textSecondary" gutterBottom className='cordefundo'>
+                  Grupo
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {grupos.numeroGrupo}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {grupos.maisInfos}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
 
-              <Link to={`/grupos/${grupos.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" className="marginLeft botao" size='small'>
-                    Atualizar
-                  </Button>
-                </Box>
-              </Link>
-              <Link to={`/grupos/${grupos.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" size='small' color="secondary">
-                    Deletar
-                  </Button>
-                </Box>
-              </Link>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
-      ))
-      }
-    </Grid>
+        ))
+      } 
+       </Grid>
     </>
-  );
-}  
+  )
+}
 
 export default ListaGrupos;
+
