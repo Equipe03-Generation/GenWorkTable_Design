@@ -5,33 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
+import Projetos from '../../../models/Projetos';
 
 function CadastroPost() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [temas, setTemas] = useState<Tema[]>([])
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => state.tokens
-      );
 
-    useEffect(() => {
-        if (token == "") {
-            toast.error('Você precisa estar logado', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-            });
-            navigate("/login")
 
-        }
-    }, [token])
-
-    const [tema, setTema] = useState<Tema>(
+    const [projetos, setProjetos] = useState<Projetos>(
         {
             id: 0,
             assunto: '',
@@ -59,19 +40,11 @@ function CadastroPost() {
     }, [id])
 
     async function getTemas() {
-        await busca("/tema", setTemas, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        await busca("/tema", setTemas)
     }
 
     async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagem, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        await buscaId(`postagens/${id}`, setPostagem)
     }
 
     function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
@@ -88,11 +61,7 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+            put(`/postagens`, postagem, setPostagem)
             toast.success('Postagem modificada com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
@@ -104,11 +73,7 @@ function CadastroPost() {
                 progress: undefined,
             });
         } else {
-            post(`/postagens`, postagem, setPostagem, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+            post(`/postagens`, postagem, setPostagem)
             toast.success('Postagem criada com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,
@@ -140,11 +105,7 @@ function CadastroPost() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
-                            headers: {
-                                'Authorization': token
-                            }
-                        })}>
+                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema)}>
                         {
                             temas.map(tema => (
                                 <MenuItem value={tema.id}>{tema.assunto}</MenuItem>

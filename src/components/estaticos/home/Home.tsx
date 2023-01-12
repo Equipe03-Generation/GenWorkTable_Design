@@ -7,6 +7,7 @@ import ModalProjeto from '../../modais/modalProjeto/ModalProjeto';
 import ListaProjetos from '../../paginas/listaprojetos/ListaProjetos';
 
 function Home() {
+    return (
     
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
@@ -30,6 +31,7 @@ function Home() {
                     <ListaProjetos />
                 </Grid>
             </Grid>
+    );
 }
 
 export default Home;
