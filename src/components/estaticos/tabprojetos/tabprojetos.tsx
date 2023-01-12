@@ -27,7 +27,7 @@ function TabProjetos() {
         </TabPanel>
         <TabPanel value="2">
           <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Sobre-nós</Typography>
-          <Typography variant="body1" gutterBottom color="textPrimary" align="justify">!</Typography>
+          <Typography variant="body1" gutterBottom color="textPrimary" align="justify">Nossa missão é transformar sistemas de educação para o emprego de maneira a preparar, colocar e apoiar pessoas em carreiras transformadoras que, de outra forma, seriam inacessíveis.</Typography>
         </TabPanel>
       </TabContext>
     </>
