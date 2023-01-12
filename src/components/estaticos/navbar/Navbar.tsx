@@ -3,6 +3,9 @@ import { AppBar, Toolbar, Typography} from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
+import ModalTurma from '../../modais/modalTurma/ModalTurma';
+import ModalProjeto from '../../modais/modalProjeto/ModalProjeto';
+import ModalGrupo from '../../modais/modalGrupo/ModalGrupo';
 
 function Navbar() {
     return (
@@ -13,59 +16,45 @@ function Navbar() {
             <Box display="flex" justifyContent="start">
                 <Link to="/home" className="text-decorator-none">
                     <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/5544/5544224.png" height={40} alt="" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/7606/7606136.png" height={40} alt="" />
                         <br />
                         Home
                     </Box>
                 </Link>
-                <Link to="/equipe" className="text-decorator-none sizeicons">
+                <Link to="/turmas" className="text-decorator-none sizeicons">
                     <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1283/1283218.png" height={40} alt="" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/43/43289.png" height={40} alt="" />
                         <br />
-                        Equipe
+                        Turmas
                     </Box>
                 </Link>
-                <Link to="/sobre" className="text-decorator-none">
+                <Link to="/equipes" className="text-decorator-none">
                     <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/6488/6488588.png" height={40} alt="" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/1570/1570120.png" height={40} alt="" />
                         <br />
-                        Sobre
+                        Grupos
                     </Box>
                 </Link>
-                <Link to="/posts" className="text-decorator-none">
+                <Link to="/projetos" className="text-decorator-none">
                     <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/7782/7782698.png" height={40} alt="" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/1087/1087927.png" height={40} alt="" />
                         <br />
-                        Posts
+                        Projetos
                     </Box>
-                </Link>
+                </Link> 
                     <Box mx={5} className='cursor text-decorator-none center'>
-                        +Post
+                    <ModalTurma/>
+                        Criar Turma
                     </Box>               
-                <Link to="/temas" className="text-decorator-none">
                 <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1443/1443029.png" height={40} alt="" />
-                        <br />
-                        Temas
+                    <ModalGrupo/>
+                        Criar Grupo
                 </Box>
-                </Link>
-                <Link to="/formularioTema" className="text-decorator-none">
                 <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1658/1658958.png" height={40} alt="" />
-                        <br />
-                        +Tema
+                    <ModalProjeto/>
+                        Criar Projeto
                 </Box>
-                </Link>
-                <Link to="/usuarios" className="text-decorator-none sizeicons">
-                    <Box mx={5} className='cursor text-decorator-none center'>
-                        <img src="https://cdn-icons-png.flaticon.com/512/5027/5027793.png" height={40} alt="" />
-                        <br />
-                        Usuários
-                    </Box>
-                </Link>
-                
             </Box>
-
         </Toolbar>
     </AppBar>
 

@@ -60,7 +60,7 @@ function ModalTurma () {
     <div>
       <Button
         variant="outlined"
-        className="botaomodal"
+        className="botaomodal3"
         onClick={handleOpen}></Button>
       <Modal
         open={open}

@@ -60,7 +60,7 @@ function ModalProjeto () {
     <div>
       <Button
         variant="outlined"
-        className="botaomodal"
+        className="botaomodal2"
         onClick={handleOpen}></Button>
       <Modal
         open={open}

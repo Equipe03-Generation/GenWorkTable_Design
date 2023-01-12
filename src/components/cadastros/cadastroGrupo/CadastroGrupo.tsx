@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { Container, Typography, TextField, Grid } from "@material-ui/core";
+import { Container, Typography, TextField, Grid, Button } from "@material-ui/core";
 import { useNavigate, useParams } from 'react-router-dom';
 import { post } from '../../../services/Service';
 import { toast } from 'react-toastify';
@@ -53,11 +53,14 @@ function CadastroGrupo() {
         <Grid className='postcard'>
         <Container maxWidth="sm">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" className='postcard' >Cadastro de Postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" className='postcard' >Cadastro de Grupo</Typography>
                 <TextField value={grupos.numeroGrupo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedGrupos(e)} id="numeroGrupo" label="Número" variant="outlined" name="numeroGrupo" margin="normal" fullWidth />
                 <TextField value={grupos.maisInfos} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedGrupos(e)} id="maisInfos" label="Integrantes" name="maisInfos" variant="outlined" margin="normal" fullWidth />
                 <TextField value={grupos.turmaId} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedGrupos(e)} id="turmaId" label="Número da Turma" name="turmaId" variant="outlined" margin="normal" fullWidth />
             </form>
+            <Button type="submit" variant="contained" className='botaopostagem'>
+                Finalizar
+            </Button>
         </Container>
         </Grid>
     )

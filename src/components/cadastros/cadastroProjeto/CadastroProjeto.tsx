@@ -17,6 +17,7 @@ function CadastroProjetos() {
             descricao: '',
             isAtivo: ''
         })
+
     const [projetos, setProjetos] = useState<Projetos>({
         id: 0,
         nomeProjeto: '',
@@ -97,25 +98,12 @@ function CadastroProjetos() {
         <Grid className='postcard'>
         <Container maxWidth="sm">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" className='postcard' >Cadastro de Postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" className='postcard' >Cadastro de Projeto</Typography>
                 <TextField value={projetos.nomeProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="nomeProjeto" label="Nome Projeto" variant="outlined" name="nomeProjeto" margin="normal" fullWidth />
                 <TextField value={projetos.logoProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="logoProjeto" label="Logo Projeto" variant="outlined" name="logoProjeto" margin="normal" fullWidth />
                 <TextField value={projetos.linkProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="linkProjeto" label="Link Projeto" variant="outlined" name="linkProjeto" margin="normal" fullWidth />
                 <TextField value={projetos.pitProjeto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProjetos(e)} id="pitProjeto" label="Pit Projeto" variant="outlined" name="pitProjeto" margin="normal" fullWidth />
-
                 <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Turmas</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/turmas/${e.target.value}`, setTurmas)}>
-                        {
-                            turmas.map(turmas => (
-                                <MenuItem value={turmas.descricao}>{turmas.isAtivo}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha uma turma para o projeto</FormHelperText>
                     <Button type="submit" variant="contained" className='botaopostagem'>
                         Finalizar
                     </Button>

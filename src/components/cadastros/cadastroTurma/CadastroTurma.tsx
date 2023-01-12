@@ -43,7 +43,7 @@ function CadastroTurma() {
             if (id !== undefined) {
                 console.log(turmas)
                 put(`/turmas`, turmas, setTurmas)
-                toast.success('Turma atualizado com sucesso', {
+                toast.success('Turma atualizada com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
                     hideProgressBar: false,
@@ -55,7 +55,7 @@ function CadastroTurma() {
                     });
             } else {
                 post(`/turmas`, turmas, setTurmas)
-                toast.success('Turma cadastrado com sucesso', {
+                toast.success('Turma cadastrada com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
                     hideProgressBar: false,
@@ -79,7 +79,7 @@ function CadastroTurma() {
             <Grid alignItems="center" item xs={12} className='fundotema'>
             <form onSubmit={onSubmit}  className='formcadastro'>
 
-                <Typography variant="h3" className='fontecadtema' component="h1" align="center">Cadastro de Tema</Typography>
+                <Typography variant="h3" className='fontecadtema' component="h1" align="center">Cadastro de Turma</Typography>
                 <TextField className='cortemacaixa' value={turmas.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTurmas(e)} id="descricao" label="Descrição" name="descricao" margin="normal" fullWidth />
                 <TextField className='cortemacaixa' value={turmas.isAtivo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTurmas(e)} id="isAtivo" label="Ativo ou Desativo" name="isAtivo" margin="normal" fullWidth />
                 

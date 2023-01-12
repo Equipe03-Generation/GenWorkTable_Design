@@ -60,7 +60,7 @@ function ModalGrupo () {
     <div>
       <Button
         variant="outlined"
-        className="botaomodal"
+        className="botaomodal1"
         onClick={handleOpen}></Button>
       <Modal
         open={open}

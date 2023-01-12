@@ -14,7 +14,7 @@ function Footer() {
                             <Typography variant="h5" align="center" gutterBottom className='textos'>Siga-me no LinkedIn e GitHub! </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <a href="https://www.linkedin.com/in/gustavo-rocha-860706250/" target="_blank">
+                            <a href="https://www.linkedin.com/in/" target="_blank">
                                 <LinkedInIcon className='redes' />
                             </a>
                         </Box>
@@ -24,7 +24,7 @@ function Footer() {
                             <Typography variant="subtitle2" align="center" gutterBottom className='textos' >© 2022 Copyright:</Typography>
                         </Box>
                         <Box>
-                            <a target="_blank" href="https://github.com/gust-tech/Blog_Pessoal_React/tree/v4-final">
+                            <a target="_blank" href="https://github.com/Equipe03-Generation/GenWorkTable">
                                 <Typography variant="subtitle2" gutterBottom className='textos' align="center">Repositório do Projeto</Typography>
                             </a>
                         </Box>
